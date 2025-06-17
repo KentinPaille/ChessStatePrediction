@@ -7,13 +7,12 @@ This project provides tools to generate, label, and parse chess positions (in FE
 ## 📁 Project Structure
 
 ```
-.
-├── chess_generate.py         # Generate labeled random legal FEN positions
-├── determine_state.py        # Aggregate and label FENs from text datasets
-├── parse_chess_state.py      # Convert FENs to one-hot encoded 3D arrays
+├── utils/
+    └── chess_generate.py         # Generate labeled random legal FEN positions
+    └── determine_state.py        # Aggregate and label FENs from text datasets
+    └── parse_chess_state.py      # Convert FENs to one-hot encoded 3D arrays
 ├── chessai.ipynb             # Notebook for testing, visualization, and experimentation
 ├── datasets/                 # Folder containing text-based FENs by category
-└── all_fens_labeled.csv      # Labeled dataset generated from determine_state.py
 ```
 
 ---
@@ -91,19 +90,6 @@ A Jupyter notebook for:
 **Installation:**
 ```bash
 pip install python-chess pandas numpy
-```
-
----
-
-## 🧠 Quick Example
-
-```python
-from parse_chess_state import batch_fens_to_arrays
-import pandas as pd
-
-df = pd.read_csv("all_fens_labeled.csv")
-arrays = batch_fens_to_arrays(df["FEN"].tolist())
-print(arrays.shape)  # (n_samples, 8, 8, 13)
 ```
 
 ---
